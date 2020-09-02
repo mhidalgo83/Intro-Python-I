@@ -29,4 +29,22 @@ it should use today’s date to get the month and year.
 
 import sys
 import calendar
-from datetime import datetime
+import datetime
+
+if len(sys.argv) == 1:
+  print(calendar.month(datetime.datetime.now().year, datetime.datetime.now().month)) 
+  
+elif int(sys.argv[1]) < 1 or int(sys.argv[1]) > 12:
+  print("First argument must be a number between 1 and 12")
+
+elif len(sys.argv) == 2:
+  print(calendar.month(datetime.datetime.now().year, int(sys.argv[1])))
+
+elif int(sys.argv[2]) < 1:
+  print("Second argument must be greater than one")
+
+elif len(sys.argv) == 3:
+  print(calendar.month(int(sys.argv[2]), int(sys.argv[1])))
+
+
+
